@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             // aggiungiamo campo
-            $table->unsignedBigInteger('type_id')->nullable()->after();
+            $table->unsignedBigInteger('type_id')->nullable()->after('id');
 
             // aggiugniamo il vincolo della relazione
-            $table->foreign('types_id')->references('id')->on('types')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null')->onUpdate('cascade');
         });
     }
 
